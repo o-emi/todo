@@ -1,0 +1,109 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.todo-wrapper {
+  /* 画面が広いときの最大幅 */
+  max-width: 600px;
+  /* 画面幅に応じて広がる */
+  width: 90%;
+  /* 中央寄せ */
+  margin: 0 auto;
+}
+
+/* フォームとリストは親に合わせる */
+.todo-container,
+.todo-form {
+width: 100%;
+padding: 8px;
+
+}
+
+.todo-form {
+  display: flex;   /* 横並び */
+  align-items: center;
+  gap: 20px;
+}
+
+.todo-form__input {
+  flex: 1;
+}
+
+.todo-container h3 {
+  /* 下線 */
+  border-bottom: 1px solid #ccc;
+  /* 文字と線の間に余白 */
+  padding-bottom: 5px;
+  /* 下のリストとの間隔 */
+  margin-bottom: 3px;
+}
+
+/* 通知 */
+.notification {
+  background-color: #4CAF50;
+  color: rgb(21, 20, 20);
+  padding: 10px 15px;
+  margin-bottom: 50px;
+  border-radius: 4px;
+}
+
+.todo-item {
+  display: flex;               /* 横並びにする */
+  justify-content: space-between; /* 両端に配置（余白を空ける） */
+  align-items: center;         /* 縦位置を揃える */
+  padding: 8px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+
+.todo-actions {
+  display: flex;
+  gap: 8px;
+}
+
+
+.todo-form__input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.todo-form__button {
+  background: #000;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  /* 入力フォームとボタンの間に間隔 */
+  margin-left: 20px;
+}
+
+/* ボタンの並び */
+.todo-actions {
+  display: flex;
+  gap: 8px; /* 更新と削除の間隔 */
+  /* ボタンが縮まないようにする */
+  flex-shrink: 0;
+}
+
+.update-btn {
+background-color: blue;
+color: white;
+/* 枠なし */
+border: none;
+padding: 5px 10px;
+/* クリック時にポインター表示 */
+cursor:pointer;
+border-radius: 4px;
+}
+
+.delete-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}

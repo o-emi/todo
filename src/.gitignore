@@ -13,3 +13,6 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+
+# MySQL data files (never commit)
+docker/mysql/data/
