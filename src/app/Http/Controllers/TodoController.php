@@ -9,7 +9,13 @@ class TodoController extends Controller
 {
     public function index()
     {
-        return view('index');
+        // データベースから全てのデータを取得
+        $todos = Todo::all();
+
+        // return view('index');
+        // 取得したデータをビュー（index.blade.php）に渡す
+        // return view('index', ['todos' => $todos]);をcompact関数で記述
+        return view('index' , compact('todos'));
     }
 
     // リクエストを受け取る（storeは、保存する）
