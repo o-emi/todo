@@ -38,6 +38,8 @@
             <tr class="todo-table__row">
                 <th class="todo-table__header">Todo</th>
             </tr>
+            <!-- データベースに保存されているデータを表示 -->
+            @foreach ($todos as $todo)
             <!-- リスト1行目　テキスト -->
             <tr class="todo-table__row">
                 <!-- td　テーブルのセル -->
@@ -45,7 +47,7 @@
                     <!-- 更新フォーム -->
                     <form class="update-form">
                         <div class="update-form__item">
-                            <input class="update-form__item-input" type="text" name="content" value="test">
+                            <p class="update-form__item-input">{{ $todo['content'] }}</p>
                         </div>
                         <div class="update-form__button">
                             <button class="update-form__button-submit" type="submit">更新</button>
@@ -61,11 +63,12 @@
                     </form>
                 </td>
             </tr>
+            @endforeach
             <!-- 次の行へいく -->
-            <tr class="todo-table__row">
-                <!-- td　テーブルのセル -->
+            <!-- <tr class="todo-table__row">
+                td　テーブルのセル
                 <td class="todo-table__item">
-                    <!-- 更新フォーム -->
+                    更新フォーム
                     <form class="update-form">
                         <div class="update-form__item">
                             <input class="update-form__item-input" type="text" name="content" value="test2">
@@ -75,7 +78,7 @@
                         </div>
                     </form>
                 </td>
-                <!-- 削除用フォーム -->
+                削除用フォーム
                 <td class="todo-table__item">
                 <form class="delete-form">
                         <div class="delete-form__button">
@@ -83,7 +86,7 @@
                         </div>
                     </form>
                 </td>
-            </tr>
+            </tr> -->
         </table>
     </div>
 </div>
