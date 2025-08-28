@@ -5,7 +5,7 @@
   color: #0f5132;
 }
 
-/* 記述にない気がする‥
+/* バリデーションでエラー時にでるメッセージCSS */
 .todo__alert--danger {
   padding: 10px 0;
   border-color: #f5c2c7;
@@ -15,7 +15,7 @@
 
 .todo__alert--danger ul {
   margin: 0;
-} */
+}
 
 .todo__content {
   margin: 0 auto;
@@ -34,7 +34,6 @@
 .create-form__item {
   width: 70%;
   /* テキストにない */
-  display: flex;
 }
 
 .create-form__item-input {
