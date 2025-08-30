@@ -11,7 +11,12 @@ class Todo extends Model
 
     // このカラムだけを操作可能にする
         protected $fillable =[
+            'category_id',
             'content',
         ];
 
+        public function category()
+        {
+            return $this->belongsTo(Category::class);
+        }
 }

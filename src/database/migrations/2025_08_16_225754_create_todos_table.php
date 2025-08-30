@@ -15,8 +15,10 @@ class CreateTodosTable extends Migration
     {
         Schema::create('todos', function (Blueprint $table) {
             $table->id();
-            $table->text('content', 20)->nullable();
+            $table->foreignID('category_id')->constrained()->cascadeOnDelete();
+            $table->string('content', 20);
             $table->timestamps();
+
 
         });
     }
