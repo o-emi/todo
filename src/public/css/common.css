@@ -1,12 +1,19 @@
 .header {
   background: #000;
-  padding: 0 auto;
+  /* 確認のため */
+  /* outline: 1px solid red; */
 }
 
 .header__inner {
-  padding: 10px 15px;
-  text-align: left;
+  margin: 0 auto;
+  padding: 20px 15px;
   max-width: 1230px;
+}
+
+.header-utilities {
+display: flex;
+align-items: center;
+justify-content: space-between;
 }
 
 .header__logo {
@@ -14,4 +21,9 @@
   text-decoration: none;
   font-weight: bold;
   font-size: 24px;
+}
+
+.header-nav__link {
+  color: #fff;             /* 文字色 */
+  text-decoration: none;   /* 下線を消す */
 }

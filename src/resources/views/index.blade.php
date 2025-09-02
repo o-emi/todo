@@ -24,8 +24,11 @@
 
 <div class="todo__content">
 
-    <!-- フォーム全体 -->
-    <!-- <form class="create-form"> -->
+<!-- フォーム前のセクションタイトル -->
+    <div class="section__title">
+        <h2>新規作成</h2>
+    </div>
+    <!-- 新規作成入力フォーム -->
         <form class="create-form" action="/todos" method="post">
         @csrf
         <!-- フォームの中の入力欄+ボタンをまとめた要素 -->
@@ -33,13 +36,35 @@
             <!-- 入力ボックスそのもの -->
             <input class="create-form__item-input" type="text"
             name="content"
-            value="{{ old('content') }}">
-            </input>
+            value="{{ old('content') }}"/>
+            <!-- カテゴリ入力（選択）欄 -->
+            <select class="create-form__item-select">
+                <option value="">カテゴリ</option>
+            </select>
+        </div>
             <!-- ボタンを包む枠 -->
-            <div class="create-form__button">
+        <div class="create-form__button">
                 <!-- 実際の作成ボタン -->
             <button class="create-form__button-submit" type="submit">作成</button>
-            </div>
+        </div>
+    </form>
+<!-- フォーム前のセクションタイトル -->
+    <div class="section__title">
+        <h2>Todo検索</h2>
+    </div>
+    <!-- Todo検索フォーム -->
+    <form class="search-form">
+        @csrf
+        <div class="search-form__item">
+            <input class="search-form__item-input" type="text"/>
+            <!-- カテゴリ入力（選択）欄 -->
+            <select class="search-form__item-select">
+                <option value="">カテゴリ</option>
+            </select>
+        </div>
+        <!-- 検索ボタン -->
+        <div class="search-form__button">
+            <button class="search-form__button-submit" type="submit">検索</button>
         </div>
     </form>
     <!-- Todoリスト　テーブル作成 -->
@@ -49,7 +74,10 @@
         <table class="todo-table__inner">
             <!-- ヘッダー行 -->
             <tr class="todo-table__row">
-                <th class="todo-table__header">Todo</th>
+                <th class="todo-table__header">
+                    <span class="todo-table__header-span">Todo</span>
+                    <span class="todo-table__header-span">カテゴリ</span>
+                </th>
             </tr>
             <!-- データベースに保存されているデータを表示 -->
             @foreach ($todos as $todo)
@@ -63,10 +91,13 @@
                         @csrf
                         <div class="update-form__item">
                             <!-- <p class="update-form__item-input">{{ $todo['content'] }}</p> -->
-                            <input class="update-form__item-input" type="text" name="content" value="{{ $todo['content'] }}">
-                            <input type="hidden" name="id" value="{{ $todo['id'] }}">
+                            <input class="update-form__item-input" type="text" name="content" value="{{ $todo['content'] }}"/>
+                            <input type="hidden" name="id" value="{{ $todo['id'] }}"/>
                         </div>
-
+                        <div class="update-form__item">
+                            <p class="update-form__item-p">Category 1</p>
+                        </div>
+                        <!-- 更新ボタン -->
                         <div class="update-form__button">
                             <button class="update-form__button-submit" type="submit">更新</button>
                         </div>
@@ -85,29 +116,6 @@
                 </td>
             </tr>
             @endforeach
-            <!-- 次の行へいく -->
-            <!-- <tr class="todo-table__row">
-                td　テーブルのセル
-                <td class="todo-table__item">
-                    更新フォーム
-                    <form class="update-form">
-                        <div class="update-form__item">
-                            <input class="update-form__item-input" type="text" name="content" value="test2">
-                        </div>
-                        <div class="update-form__button">
-                            <button class="update-form__button-submit" type="submit">更新</button>
-                        </div>
-                    </form>
-                </td>
-                削除用フォーム
-                <td class="todo-table__item">
-                <form class="delete-form">
-                        <div class="delete-form__button">
-                            <button class="delete-form__button-submit" type="submit"  >削除</button>
-                        </div>
-                    </form>
-                </td>
-            </tr> -->
         </table>
     </div>
 </div>
