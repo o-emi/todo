@@ -45,4 +45,6 @@ class TodoController extends Controller
 
         return redirect('/')->with('message' , 'Todoを削除しました');
     }
+
+
 }
