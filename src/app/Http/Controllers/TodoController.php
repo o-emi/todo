@@ -20,7 +20,7 @@ class TodoController extends Controller
         return view('index' , compact('todos'));
     }
 
-
+// フォームから送られてきたデータをデータベースに追加する処理
     public function store(TodoRequest $request)
     {
         $todo = $request->only(['content']);

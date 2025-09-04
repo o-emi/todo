@@ -110,7 +110,7 @@
 margin-right: 40%;
 }
 
-
+/* first-of-type 兄弟要素の中で最初のそのタグ にだけ適用される疑似クラス */
 .todo-table__item:first-of-type {
   padding: 12px;
   width: 90%;

@@ -70,7 +70,7 @@
     <!-- Todoリスト　テーブル作成 -->
     <!-- テーブル全体を囲む外枠 -->
     <div class="todo-table">
-        <!-- 実際のテーブルh始まり -->
+        <!-- 実際のテーブル始まり -->
         <table class="todo-table__inner">
             <!-- ヘッダー行 -->
             <tr class="todo-table__row">
@@ -103,8 +103,8 @@
                         </div>
                     </form>
                 </td>
-                <!-- 削除用フォーム -->
                 <td class="todo-table__item">
+                <!-- 削除用フォーム -->
                 <form class="delete-form" action="/todos/delete" method="POST">
                     @method('DELETE')
                     @csrf
