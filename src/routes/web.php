@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoController;
-
+use App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,4 +23,5 @@ Route::post('/todos', [TodoController::class, 'store']);
 Route::delete('/todos/{id}', [TodoController::class, 'destroy'])->name('todos.destroy');
 Route::patch('/todos/update',[TodoController::class, 'update']);
 Route::DELETE('/todos/update',[TodoController::class, 'destroy']);
-
+Route::get('/categories', [CategoryController::class, 'index']);
+Route::post('/categories', [CategoryController::class, 'store']);
