@@ -28,10 +28,11 @@
     @csrf
 <!-- フォームの中の入力欄+ボタンをまとめた要素 -->
         <div class="create-form__item">
-<!-- 入力ボックスそのもの -->
+<!-- 入力ボックスそのもの
+valueで、入力失敗した際の、入力した値を保持 -->
             <input class="create-form__item-input" type="text"
             name="name"
-            value="{{ old('content') }}"/>
+            value="{{ old('name') }}"/>
         </div>
 <!-- ボタンを包む枠 -->
         <div class="create-form__button">
@@ -54,7 +55,9 @@
                 <td class="category-table__item">
                     <form class="update-form">
                         <div class="update-form__item">
-                            <input class="update-form__item-input" type="text">
+<!-- 追加したカテゴリが表示されるように修正した
+                            <input class="update-form__item-input" type="text"> -->
+                            <input class="update-form__item-input" type="text" value="{{ $category['name'] }}">
                         </div>
 <!-- ボタンを包む枠 -->
                         <div class="update-form__button">
