@@ -53,11 +53,15 @@ valueで、入力失敗した際の、入力した値を保持 -->
             <tr class="category-table__row">
 <!-- td　テーブルのセル -->
                 <td class="category-table__item">
-                    <form class="update-form">
+<!-- フォームの内容をコントローラに送るための記述 -->
+                    <form class="update-form" action="/categories/update" method="POST">
+                        @method('PATCH')
+                        @csrf
                         <div class="update-form__item">
 <!-- 追加したカテゴリが表示されるように修正した
                             <input class="update-form__item-input" type="text"> -->
-                            <input class="update-form__item-input" type="text" value="{{ $category['name'] }}">
+                            <input class="update-form__item-input" type="text" name='name' value="{{ $category['name'] }}">
+                            <input type="hidden" name="id" value="{{ $category['id'] }}"/>
                         </div>
 <!-- ボタンを包む枠 -->
                         <div class="update-form__button">
@@ -66,9 +70,14 @@ valueで、入力失敗した際の、入力した値を保持 -->
                         </div>
                     </form>
                 </td>
+<!-- 削除ボタンを包む枠 -->
                 <td class="category-table__item">
-                    <form class="delete-form">
+<!-- 実際の削除ボタン -->
+                <form class="delete-form" action="/categories/delete" method="POST">
+                    @method('DELETE')
+                    @csrf
                         <div class="delete-form__button">
+                            <input type="hidden" name="id" value="{{ $category['id'] }}">
                             <button class="delete-form__button-submit" type="submit">削除</button>
                         </div>
                     </form>

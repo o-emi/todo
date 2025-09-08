@@ -26,4 +26,23 @@ class CategoryController extends Controller
 // 登録後、一覧ページにリダイレクト
         return redirect('/categories')->with('message' , 'カテゴリを作成しました');
     }
+
+// 更新機能の実装
+        public function update(CategoryRequest $request)
+    {
+        $category = $request->only(['name']);
+        // id　から該当するCategoryを取得
+        Category::find($request->id)->update($category);
+
+        return redirect('/categories')->with('message' , 'カテゴリを更新しました');
+    }
+
+// 削除機能の実装
+        public function destroy(Request $request)
+    {
+        // id　から該当するCategoryを取得し削除
+        Category::find($request->id)->delete();
+
+        return redirect('/categories')->with('message' , 'カテゴリを削除しました');
+    }
 }
