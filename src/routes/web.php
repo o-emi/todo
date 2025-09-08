@@ -14,15 +14,19 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/', [TodoController::class, 'index']);
 Route::post('/todos', [TodoController::class, 'store']);
 // Route::delete('/todos/{id}', [TodoController::class, 'destroy'])->name('todos.destroy');
-Route::patch('/todos/update',[TodoController::class, 'update']);
-Route::DELETE('/todos/update',[TodoController::class, 'destroy']);
+Route::patch('/todos/{todo}',[TodoController::class, 'update']);
+Route::DELETE('/todos/{todo}',[TodoController::class, 'destroy']);
 
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::post('/categories', [CategoryController::class, 'store']);
+// カテゴリの更新機能実装
+Route::patch('/categories/update',[CategoryController::class, 'update']);
+// カテゴリ　削除機能の実装
+Route::DELETE('/categories/delete',[CategoryController::class, 'destroy']);
