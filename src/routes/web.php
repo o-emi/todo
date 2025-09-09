@@ -30,3 +30,5 @@ Route::post('/categories', [CategoryController::class, 'store']);
 Route::patch('/categories/update',[CategoryController::class, 'update']);
 // カテゴリ　削除機能の実装
 Route::DELETE('/categories/delete',[CategoryController::class, 'destroy']);
+// 検索処理の作成
+Route::get('/todos/search', [TodoController::class, 'search']);
